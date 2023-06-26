@@ -30,7 +30,7 @@ describe('simpleCalculator', () => {
   test.only.each(testCases)(
     '$a $action $b = $expected',
     ({ a, b, action, expected }) => {
-      let result = simpleCalculator({ a, b, action });
+      const result = simpleCalculator({ a, b, action });
       expect(result).toBe(expected);
     },
   );
