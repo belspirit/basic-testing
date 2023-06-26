@@ -9,7 +9,7 @@ import {
 describe('resolveValue', () => {
   test('should resolve provided value', async () => {
     const value = 'test';
-    expect(resolveValue(value)).resolves.toBe(value);
+    return expect(resolveValue(value)).resolves.toBe(value);
   });
 });
 
@@ -38,6 +38,6 @@ describe('throwCustomError', () => {
 
 describe('rejectCustomError', () => {
   test('should reject custom error', async () => {
-    expect(rejectCustomError()).rejects.toThrow(MyAwesomeError);
+    return expect(rejectCustomError()).rejects.toThrow(MyAwesomeError);
   });
 });
