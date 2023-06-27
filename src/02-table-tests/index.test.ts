@@ -1,5 +1,6 @@
 import { simpleCalculator, Action } from './index';
 
+// 7 tests covered with one table test
 const testCases = [
   { a: 1, b: 2, action: Action.Add, expected: 3 },
   { a: -3, b: 1, action: Action.Add, expected: -2 },
@@ -18,8 +19,10 @@ const testCases = [
   { a: 4, b: -1, action: Action.Exponentiate, expected: 0.25 },
   { a: 3, b: 3, action: Action.Exponentiate, expected: 27 },
   { a: -3, b: 2, action: Action.Exponentiate, expected: 9 },
+  // bad operation tests
   { a: 1, b: 2, action: 'badop', expected: null },
   { a: 1, b: 2, action: '', expected: null },
+  // bad arguments tests
   { a: '1', b: 2, action: Action.Add, expected: null },
   { a: 1, b: {}, action: Action.Add, expected: null },
   { a: null, b: 2, action: Action.Add, expected: null },
