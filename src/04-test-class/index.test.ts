@@ -59,6 +59,7 @@ describe('BankAccount', () => {
     const balance = 42;
     const account = getBankAccount(balance);
     await expect(account.fetchBalance()).resolves.toSatisfy(
+      // if result is null - request failed, otherwise - returns balance (number)
       (x) => x === null || typeof x === 'number',
     );
   });
