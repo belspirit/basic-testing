@@ -72,7 +72,7 @@ describe('BankAccount', () => {
       .mockImplementationOnce(() => Promise.resolve(newBalance));
     await account.synchronizeBalance();
     expect(account.getBalance()).toBe(newBalance);
-    fetchBalanceSpy.mockClear();
+    fetchBalanceSpy.mockRestore();
   });
 
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {
@@ -84,6 +84,6 @@ describe('BankAccount', () => {
     await expect(account.synchronizeBalance()).rejects.toThrow(
       SynchronizationFailedError,
     );
-    fetchBalanceSpy.mockClear();
+    fetchBalanceSpy.mockRestore();
   });
 });
