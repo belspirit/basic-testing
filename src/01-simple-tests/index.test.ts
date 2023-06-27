@@ -15,14 +15,14 @@ describe('simpleCalculator tests', () => {
     expect(result).toBe(-9);
   });
 
-  test('should substract two numbers', () => {
-    let result = simpleCalculator({ a: 1, b: 2, action: Action.Substract });
+  test('should subtract two numbers', () => {
+    let result = simpleCalculator({ a: 1, b: 2, action: Action.Subtract });
     expect(result).toBe(-1);
 
-    result = simpleCalculator({ a: -3, b: 1, action: Action.Substract });
+    result = simpleCalculator({ a: -3, b: 1, action: Action.Subtract });
     expect(result).toBe(-4);
 
-    result = simpleCalculator({ a: -4, b: -5, action: Action.Substract });
+    result = simpleCalculator({ a: -4, b: -5, action: Action.Subtract });
     expect(result).toBe(1);
   });
 
