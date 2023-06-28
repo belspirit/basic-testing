@@ -1,4 +1,5 @@
 import 'jest-extended';
+import lodash from 'lodash';
 import {
   BankAccount,
   InsufficientFundsError,
@@ -58,10 +59,12 @@ describe('BankAccount', () => {
   test('fetchBalance should return number in case if request did not failed', async () => {
     const balance = 42;
     const account = getBankAccount(balance);
-    await expect(account.fetchBalance()).resolves.toSatisfy(
-      // if result is null - request failed, otherwise - returns balance (number)
-      (x) => x === null || typeof x === 'number',
-    );
+    const randomSpy = jest
+      .spyOn(lodash, 'random')
+      .mockImplementationOnce(() => 68)
+      .mockImplementationOnce(() => 1);
+    await expect(account.fetchBalance()).resolves.toBe(68);
+    randomSpy.mockRestore();
   });
 
   test('should set new balance if fetchBalance returned number', async () => {
