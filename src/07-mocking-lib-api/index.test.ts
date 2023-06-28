@@ -1,8 +1,12 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { throttledGetDataFromApi } from './index';
 
 describe('throttledGetDataFromApi', () => {
-  let getSpy: any;
+  let getSpy: jest.SpyInstance<
+    Promise<unknown>,
+    [url: string, config?: AxiosRequestConfig<unknown> | undefined],
+    unknown
+  >;
   const responseData = 'some data';
 
   beforeEach(() => {
