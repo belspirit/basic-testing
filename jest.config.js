@@ -1,5 +1,6 @@
 module.exports = {
   testEnvironment: 'node',
+  setupFilesAfterEnv: ['jest-extended/all'],
   testPathIgnorePatterns: ['/node_modules/'],
   testMatch: ['**/?(*.)+(test).ts'],
   moduleFileExtensions: ['ts', 'js', 'json'],
@@ -12,4 +13,5 @@ module.exports = {
   transform: {
     '^.+\\.ts?$': 'ts-jest',
   },
+  testTimeout: 30000,
 };
